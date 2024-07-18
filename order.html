@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>order</title>
+
+<style>
+    header{
+           grid-area: header;
+           font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+           color: rgb(252, 244, 249);
+           text-align: center;
+           background-color: rgb(172, 14, 88);
+           /*margin: -5px; 
+           padding: 10px;*/
+           margin-top: 0px;
+           padding: 0.7rem;
+           width: 100%;
+           height: 100%;
+           box-sizing: border-box;
+             
+        }
+
+    body{
+        background-color: rgb(255, 229, 245);
+        margin: 0;
+           padding: 0;
+           width: 100%;
+           height: 100%;
+           box-sizing: border-box;
+    }
+
+    .sidenav {
+            grid-area: sidenav;
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: rgb(255, 255, 255);
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 15px 13px 8px; /*top right bottom left*/
+            text-decoration:solid;
+            font-size: 18px;
+            color: rgb(172, 14, 88);
+            display: block;
+            transition: 0.3s;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+
+        .sidenav .active{
+          background-color: rgb(172, 14, 88);
+          color: rgb(255, 255, 255);
+        }
+
+        .sidenav a:hover:not(.active) {
+            color: rgb(240, 177, 216);
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .contact {
+            position: absolute;
+            bottom: 90px;
+            width: 100%;
+            color: rgb(172, 14, 88);
+            text-align: center;
+            
+        }
+
+        .contact a {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 15px;
+            text-align: center;
+            padding-left: 15px;
+            
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 15px;}
+
+        }
+        
+        .order-form {
+        margin: 30px 80px 60px 200px;
+        padding: 20px;
+        width: 60%;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .order-form h2 {
+        color: rgb(172, 14, 88);
+        text-align: center;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    }
+
+    .order-form label {
+        display: block;
+        /*margin: 10px 0 5px 10px;*/
+        width: 70%;
+        padding: 8px;
+        margin: 20px 80px -15px 110px; /*top left bottom right*/
+        box-sizing: border-box;
+        color: rgb(143, 5, 70);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .order-form input, .order-form select, .order-form textarea {
+        width: 70%;
+        padding: 8px;
+        margin: 20px 80px 0px 110px;
+        box-sizing: border-box;
+        color: rgb(143, 5, 70);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        /*margin-bottom: 10px;*/
+    }
+
+    .order-form button {
+        width: 30%;
+        padding: 15px;
+        margin: 70px 80px 40px 260px;
+        background-color: rgb(172, 14, 88);
+        color: rgb(255, 255, 255);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    }
+
+    .order-form button:hover {
+        background-color: rgb(117, 5, 57);
+    }
+
+</style>
+</head>
+<body>
+    <header>
+        <h1>M A N E H</h1>
+    </header>
+
+    <div id="mySidenav" class="sidenav"><strong>
+       
+        <!--close button symbol for sidenav-->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> 
+        <a href="first.html">HOME</a>
+        <a href="cakeseries.html">CAKE SERIES</a>
+        <a class="active" href="order.html">ORDER</a>
+        <a href="branch.html">BRANCH</a>
+
+        <div class="contact">
+            For any inquiries : <br><br>
+            Contact us at<a href="https://web.whatsapp.com/">60112914454</a>
+            or <br><br>
+            Visit our instagram<a href="https://www.instagram.com/">@manehbymulot</a>
+        </div>
+
+    </strong></div>
+
+    <!--sidenav symbol-->
+    <span style="font-size:30px;cursor:pointer;color:rgb(172, 14, 88);padding-left: 15px ;" onclick="openNav()">&#9776; </span>
+    
+    <div class="order-form">
+        <h2>Place Your Order</h2>
+        <form id="orderForm" onsubmit="submitOrder(event)">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="address">Address</label>
+            <input type="adr" id="adr" name="adr" required>
+
+            <label for="cakeType">Cake Type</label>
+            <select id="cakeType" name="cakeType" required>
+                <option value="Chocolate">Chocolate Devil Cake</option>
+                <option value="Vanilla">Vanilla Strawberry Sponge Cake</option>
+                <option value="Red Velvet">Red Velvet Cake</option>
+                <option value="Strawberry">Carrot Cheese Cake</option>
+                <option value="Strawberry">Pecan Caramel Cheese Cake</option>
+                <option value="Strawberry">Blueberry Cheesecake</option>
+            </select>
+
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" required min="1">
+
+            <label for="message">Notes</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+
+            <button type="submit">Place Order</button>
+        </form>
+    </div>
+
+
+    <script>
+
+        function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        }
+
+        function submitOrder(event) {
+            event.preventDefault();
+            const form = document.getElementById('orderForm');
+            const formData = new FormData(form);
+            const orderData = {};
+            formData.forEach((value, key) => {
+                orderData[key] = value;
+            });
+
+            console.log('Order Submitted:', orderData);
+            alert('Thank you for ordering with Maneh! We will contact you soon.');
+
+            form.reset();
+        }
+
+    </script>
+
+</body>
+</html>
